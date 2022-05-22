@@ -30,7 +30,7 @@ window.addEventListener('resize', () => {createCanvas(10)},true);
 
 let canvasMouseOver = document.querySelectorAll('.canvasElement');
 canvasMouseOver.forEach((canvasElement) => {
-    canvasElement.addEventListener('mouseenter', () => {
+    canvasElement.addEventListener('mouseover', () => {
         canvasElement.style.backgroundColor="black";
     });
 });
