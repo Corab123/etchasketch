@@ -35,7 +35,12 @@ function initMouseOver() {
     let canvasMouseOver = document.querySelectorAll('.canvasElement');
     canvasMouseOver.forEach((canvasElement) => {
     canvasElement.addEventListener('mouseover', () => {
-        canvasElement.classList.add('canvasColor');
+        if (!rainbowMode) {
+            canvasElement.style.backgroundColor = "black";
+            return;
+        };
+        canvasElement.style.backgroundColor = "#" + randomColor();
+
     });
 });
 };
@@ -50,6 +55,21 @@ slider.oninput = function() {
     slider.value=this.value;
     createCanvas(slider.value);
 };
-
+function randomColor(){
+    return Math.floor(Math.random()*16777215).toString(16);
+}
 
 createCanvas(16);
+
+const rainbow = document.querySelector('.rainbow');
+let rainbowMode = false;
+
+rainbow.addEventListener('click', () => {
+    if(rainbowMode) {
+        rainbowMode = false;
+        rainbow.style.backgroundColor = 'chocolate';
+        return;
+    }
+    rainbowMode = true;
+    rainbow.style.backgroundColor = 'red';
+});

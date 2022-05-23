@@ -22,9 +22,6 @@ body{
     height:30vw;
     padding:.5vw
 }
-.canvasColor{
-    background-color: black;
-}
 
 button{
     background-color:chocolate;
@@ -32,7 +29,7 @@ button{
     text-align:center;
     height: 20%;
     border:0px;
-    opacity:.8;
+    opacity:.9;
     transition: opacity .2s;
     border-radius:8px;
     font-size:1.5rem;
@@ -57,7 +54,7 @@ button:hover{
     width:100%;
     background:#aaaaaa;
     outline:none;
-    opacity:0.7;
+    opacity:0.9;
     transition: opacity .2s;
     border-radius: .6rem;
 }
@@ -72,4 +69,20 @@ button:hover{
     background:chocolate;
     cursor:pointer;
     border-radius:50%;
+}
+
+.rainbow{
+    background-color:chocolate;
+    width:100%;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+    padding: 0.5rem 0 0.5rem 0;
+    opacity:.9;
+    transition:opacity .2s;
+}
+.rainbow:hover{
+    opacity:1;
 }
