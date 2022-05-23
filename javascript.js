@@ -1,7 +1,8 @@
 const canvas = document.querySelector('.canvas');
 
-createCanvas(16);
 
+let slider = document.getElementById('myRange');
+let sliderOutput = document.getElementById('myRangeValue');
 
 function createCanvas(size=16){
     if (canvas.hasChildNodes){
@@ -18,7 +19,8 @@ function createCanvas(size=16){
             canvas.appendChild(newDiv);
         }
     };
-    initializeMouseOver();
+    initMouseOver();
+    sliderOutput.textContent = `Grid size: ${slider.value} x ${slider.value}`;
 };
 
 function newDivSize(size){
@@ -29,7 +31,7 @@ function newDivSize(size){
 
 window.addEventListener('resize', () => {createCanvas(10)},true);
 
-function initializeMouseOver() {
+function initMouseOver() {
     let canvasMouseOver = document.querySelectorAll('.canvasElement');
     canvasMouseOver.forEach((canvasElement) => {
     canvasElement.addEventListener('mouseover', () => {
@@ -42,3 +44,12 @@ const clearButton = document.querySelector('button.clear')
 clearButton.addEventListener('click', () => {
     createCanvas(16);
 });
+
+slider.oninput = function() {
+    sliderOutput.textContent = `Grid size: ${this.value} x ${this.value}`;
+    slider.value=this.value;
+    createCanvas(slider.value);
+};
+
+
+createCanvas(16);
