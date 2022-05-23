@@ -31,6 +31,11 @@ window.addEventListener('resize', () => {createCanvas(10)},true);
 let canvasMouseOver = document.querySelectorAll('.canvasElement');
 canvasMouseOver.forEach((canvasElement) => {
     canvasElement.addEventListener('mouseover', () => {
-        canvasElement.style.backgroundColor="black";
+        canvasElement.classList.add('canvasColor');
     });
+});
+
+const clearButton = document.querySelector('button.clear')
+clearButton.addEventListener('click', () => {
+    createCanvas(16);
 });

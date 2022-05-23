@@ -5,13 +5,32 @@ body{
 }
 .canvas{
     display:flex;
-    background-color:#aaa;
+    background-color:#dddddd;
     flex-wrap: wrap;
     margin: 20px;
+    border:1px solid black;
     gap: .5px;
     width: 60vw;
     height: 60vw;
 }
-.canvasElement {
-    gap:2px;
+
+#controls{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height:30vw;
+    border:3px solid black;
+    padding:.5vw
+}
+.canvasColor{
+    background-color: black;
+}
+
+button{
+    background-color:darkgoldenrod;
+    width:100%;
+    text-align:center;
+    height: 20%;
+    border:0px;
 }

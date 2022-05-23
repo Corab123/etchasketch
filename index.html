@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="controls"><ul>
-        <li>Color picker</li>
-        <li>Rainbow mode</li>
-        <li>Clear</li>
-        <li>Size slider</li>
-    </ul></div>
+    <div id="controls">
+        <div class="color button">
+            <div id="picker"></div>
+            <div id="pickerLabel">Pick a color!</div>
+        </div>
+        <div class="rainbow button">Rainbow</div>
+        <button class="clear">Clear</button>
+        <div class="slider button">Size slider</div>
+    </div>
     <div class="canvas"></div>
     <script src="./javascript.js" defer></script>
 </body>
