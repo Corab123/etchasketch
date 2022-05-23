@@ -19,28 +19,27 @@ function createCanvas(size=16){
             canvas.appendChild(newDiv);
         }
     };
-    initMouseOver();
+    initMouseEnter();
     sliderOutput.textContent = `Grid size: ${slider.value} x ${slider.value}`;
 };
 
 function newDivSize(size){
-    const vw=Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    const divSize = (vw*6/10 - (size-1)/2)/size;
+    const vw=canvas.clientWidth;
+    const divSize = (vw - (size-1)/2)/size;
     return divSize;
 };
 
 window.addEventListener('resize', () => {createCanvas(10)},true);
 
-function initMouseOver() {
-    let canvasMouseOver = document.querySelectorAll('.canvasElement');
-    canvasMouseOver.forEach((canvasElement) => {
-    canvasElement.addEventListener('mouseover', () => {
+function initMouseEnter() {
+    let canvasMouseEnter = document.querySelectorAll('.canvasElement');
+    canvasMouseEnter.forEach((canvasElement) => {
+    canvasElement.addEventListener('mouseenter', () => {
         if (!rainbowMode) {
             canvasElement.style.backgroundColor = "black";
             return;
         };
         canvasElement.style.backgroundColor = "#" + randomColor();
-
     });
 });
 };
@@ -67,9 +66,9 @@ let rainbowMode = false;
 rainbow.addEventListener('click', () => {
     if(rainbowMode) {
         rainbowMode = false;
-        rainbow.style.backgroundColor = 'chocolate';
+        rainbow.classList.remove('pressed');
         return;
     }
     rainbowMode = true;
-    rainbow.style.backgroundColor = 'red';
+    rainbow.classList.add('pressed');
 });
