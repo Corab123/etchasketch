@@ -1,6 +1,6 @@
 const canvas = document.querySelector('.canvas');
 
-createCanvas(16)
+createCanvas(16);
 
 
 function createCanvas(size=16){
@@ -18,22 +18,25 @@ function createCanvas(size=16){
             canvas.appendChild(newDiv);
         }
     };
-}
+    initializeMouseOver();
+};
 
 function newDivSize(size){
     const vw=Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
     const divSize = (vw*6/10 - (size-1)/2)/size;
     return divSize;
-}
+};
 
 window.addEventListener('resize', () => {createCanvas(10)},true);
 
-let canvasMouseOver = document.querySelectorAll('.canvasElement');
-canvasMouseOver.forEach((canvasElement) => {
+function initializeMouseOver() {
+    let canvasMouseOver = document.querySelectorAll('.canvasElement');
+    canvasMouseOver.forEach((canvasElement) => {
     canvasElement.addEventListener('mouseover', () => {
         canvasElement.classList.add('canvasColor');
     });
 });
+};
 
 const clearButton = document.querySelector('button.clear')
 clearButton.addEventListener('click', () => {
