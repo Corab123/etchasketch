@@ -1,6 +1,6 @@
 const canvas = document.querySelector('.canvas');
 
-
+let activeColor="#000000";
 let slider = document.getElementById('myRange');
 let sliderOutput = document.getElementById('myRangeValue');
 
@@ -36,10 +36,10 @@ function initMouseEnter() {
     canvasMouseEnter.forEach((canvasElement) => {
     canvasElement.addEventListener('mouseenter', () => {
         if (!rainbowMode) {
-            canvasElement.style.backgroundColor = "black";
+            canvasElement.style.backgroundColor = activeColor;
             return;
         };
-        canvasElement.style.backgroundColor = "#" + randomColor();
+        canvasElement.style.backgroundColor = randomColor();
     });
 });
 };
@@ -55,7 +55,8 @@ slider.oninput = function() {
     createCanvas(slider.value);
 };
 function randomColor(){
-    return Math.floor(Math.random()*16777215).toString(16);
+    activeColor="#" + Math.floor(Math.random()*16777215).toString(16);
+    return activeColor;
 }
 
 createCanvas(16);
@@ -67,8 +68,14 @@ rainbow.addEventListener('click', () => {
     if(rainbowMode) {
         rainbowMode = false;
         rainbow.classList.remove('pressed');
+        activeColor = myColor.value;
         return;
-    }
+    };
     rainbowMode = true;
     rainbow.classList.add('pressed');
+});
+
+const myColor = document.getElementById('myColor');
+myColor.addEventListener('input', () => {
+    activeColor = myColor.value;
 });
