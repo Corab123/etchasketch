@@ -46,7 +46,7 @@ function initMouseEnter() {
 
 const clearButton = document.querySelector('button.clear')
 clearButton.addEventListener('click', () => {
-    createCanvas(16);
+    createCanvas(slider.value);
 });
 
 slider.oninput = function() {
@@ -59,7 +59,7 @@ function randomColor(){
     return activeColor;
 }
 
-createCanvas(16);
+
 
 const rainbow = document.querySelector('.rainbow');
 let rainbowMode = false;
@@ -79,3 +79,5 @@ const myColor = document.getElementById('myColor');
 myColor.addEventListener('input', () => {
     activeColor = myColor.value;
 });
+
+createCanvas(slider.value);

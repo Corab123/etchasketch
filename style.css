@@ -95,7 +95,5 @@ button:hover{
 
 #myColor{
     appearance: none;
-    border:none;
     height:3rem;
-    font-weight: bold;
 }
